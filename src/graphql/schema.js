@@ -1,25 +1,23 @@
-const GraphQL = require('graphql');
+import GraphQL from 'graphql';
+
+// import the user query file we created
+import { index } from './queries/Post';
 
 const {
   GraphQLObjectType,
   GraphQLSchema,
 } = GraphQL;
 
-
-// import the user query file we created
-const PostQuery = require('./queries/Post');
-
-
 // lets define our root query
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   description: 'This is the default root query provided by our application',
   fields: {
-    posts: PostQuery.index(),
+    posts: index(),
   },
 });
 
 // export the schema
-module.exports = new GraphQLSchema({
+export default new GraphQLSchema({
   query: RootQuery,
 });

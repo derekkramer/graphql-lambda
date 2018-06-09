@@ -1,11 +1,11 @@
-const axios = require('axios');
+import { get } from 'axios';
 
 const PostsController = {
 
   index: (args) => {
     const URL = `https://www.reddit.com/r/${args.subreddit || 'javascript'}.json`;
 
-    return axios.get(URL)
+    return get(URL)
       .then((response) => {
         const __posts = [];
         const posts = response.data.data.children;
@@ -20,4 +20,4 @@ const PostsController = {
   },
 };
 
-module.exports = PostsController;
+export default PostsController;
