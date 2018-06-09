@@ -14,7 +14,6 @@ const PostResolver = require('../resolvers/Post');
 
 
 module.exports = {
-
   index() {
     return {
       type: new GraphQLList(PostType),
@@ -30,5 +29,4 @@ module.exports = {
       },
     };
   },
-
 };
