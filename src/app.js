@@ -1,19 +1,19 @@
-import express from 'express';
-import { json } from 'body-parser';
+const express = require('express');
+const bodyParser = require('body-parser');
 
-import expressGraphQL from 'express-graphql';
+const expressGraphQL = require('express-graphql');
 
 // let's import the schema file we just created
-import GraphQLSchema from './graphql/schema';
+const GraphQLSchema = require('./graphql/schema');
 
 
 const app = express();
 
-app.use(json({ limit: '50mb' }));
+app.use(bodyParser.json({ limit: '50mb' }));
 
 app.use(
   '/',
   expressGraphQL(() => ({ graphiql: true, schema: GraphQLSchema })),
 );
 
-export default app;
+module.exports = app;

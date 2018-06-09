@@ -1,4 +1,4 @@
-import app from './src/app';
+const app = require('./src/app');
 
 // let's set the port on which the server will run
 app.set('port', 1337);
