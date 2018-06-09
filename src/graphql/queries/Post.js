@@ -3,7 +3,6 @@ const GraphQL = require('graphql');
 const {
   GraphQLList,
   GraphQLString,
-  // GraphQLNonNull,
 } = GraphQL;
 
 // import the Post type we created
@@ -11,7 +10,6 @@ const PostType = require('../types/Post');
 
 // import the Post resolver we created
 const PostResolver = require('../resolvers/Post');
-
 
 module.exports = {
   index() {
@@ -24,8 +22,8 @@ module.exports = {
           description: 'Please enter subreddit name',
         },
       },
-      resolve(parent, args, context, info) { // eslint-disable-line no-unused-vars
-        return PostResolver.index(args);
+      resolve(...args) {
+        return PostResolver.index(args[1]);
       },
     };
   },

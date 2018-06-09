@@ -1,7 +1,6 @@
 const axios = require('axios');
 
 const PostsController = {
-
   index: (args) => {
     const URL = `https://www.reddit.com/r/${args.subreddit || 'javascript'}.json`;
 

@@ -1,14 +1,13 @@
 const GraphQL = require('graphql');
 
 const {
-  GraphQLObjectType,
   GraphQLString,
   GraphQLID,
   GraphQLInt,
 } = GraphQL;
 
 
-const PostType = new GraphQLObjectType({
+const PostType = new GraphQL.GraphQLObjectType({
   name: 'Post',
   description: 'Post Type, For all the posts present in Reddit.',
 
@@ -30,7 +29,6 @@ const PostType = new GraphQLObjectType({
       type: GraphQLString,
       description: 'Name of the Author who created this post',
     },
-
     ups: {
       type: GraphQLInt,
       description: 'Total number of Upvotes received for this post',
@@ -43,9 +41,8 @@ const PostType = new GraphQLObjectType({
       type: GraphQLString,
       description: 'Markdown content of the post',
     },
-
   }),
-
 });
+
 
 module.exports = PostType;
